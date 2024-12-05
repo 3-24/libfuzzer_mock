@@ -1,10 +1,10 @@
 .PHONY: all clean
 
-all: libFuzzer.a
+all: libfuzzer.a
 
-libFuzzer.a: StandaloneFuzzTargetMain.c
-	gclang StandaloneFuzzTargetMain.c -c -fPIC -o StandaloneFuzzTargetMain.o
-	ar r libFuzzer.a StandaloneFuzzTargetMain.o
+libfuzzer.a: StandaloneFuzzTargetMain.c
+	gclang -O0 -g StandaloneFuzzTargetMain.c -c -fPIC -o StandaloneFuzzTargetMain.o
+	ar r libfuzzer.a StandaloneFuzzTargetMain.o
 
 clean:
 	rm -f *.a *.o
